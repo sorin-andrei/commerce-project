@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-foreground: var(--foreground);
+  --font-comic: "MyComic", cursive;
+  --font-comic-heavy: "MyComicHeavy", cursive;
+
+  --background-image-sentimental: radial-gradient(
+    circle,
+    rgba(63, 94, 251, 1) 0%, 
+    rgba(103, 241, 76, 1) 15%, 
+    rgba(199, 178, 85, 1) 36%, 
+    rgba(120, 78, 188, 1) 66%, 
+    rgba(252, 70, 107, 1) 100%
+  );
+}
+
+@font-face {
+  font-family: 'MyComic';
+  src: url('./fonts/comic-helvetic-medium.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MyComicHeavy';
+  src: url('./fonts/comic-helvetic-heavy.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  background-image: var(--background-image-sentimental);
+  color: var(--foreground);
+  font-family: MyComic, cursive;
+}
+
+@layer components {
+  .text-base-comic {
+    @apply font-comic text-sm tracking-widest leading-tight;
+  }
+
+  .text-large-comic {
+    @apply font-comic-heavy text-5xl leading-tight;
+  }
+}
+
