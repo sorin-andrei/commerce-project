@@ -1,12 +1,11 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
 import { useCart } from '@/app/context/CartContext';
 import { formatPriceInLei } from '@/lib/format-price';
+import BackButton from '@/app/components/back-button';
 import Link from 'next/link';
 
 export default function CartPage() {
-    const router = useRouter();
   const { items, removeItem, updateQuantity, clearCart, total } = useCart();
 
   if (items.length === 0) {
@@ -25,11 +24,7 @@ export default function CartPage() {
     <main className="flex min-h-screen flex-col items-center p-4 sm:p-8 md:p-12 bg-sentimental text-white">
 
       <div className="w-full max-w-5xl">
-         <button 
-        onClick={() => router.back()} 
-        className="text-large-comic block mb-8 hover:underline">
-        Înapoi
-      </button>
+        <div className="mb-8"><BackButton /></div>
 
 
 
