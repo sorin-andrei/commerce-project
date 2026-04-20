@@ -2,10 +2,10 @@ import { supabase } from '@/lib/supabase';
 import ProductGrid from './components/product-grid';
 
 export default async function Home() {
-  const { data: product, error } = await supabase
+  const { data: products, error } = await supabase
     .from('product')
     .select('*');
-    
+
   if (error) console.error("Database error:", error.message);
 
 return (
@@ -14,14 +14,12 @@ return (
       <h1 className="text-large-comic">Aprozar Sentimental</h1>
     </header>
 
-   <ProductGrid products={product} />
+   <ProductGrid products={products} />
 
-    {/* Empty State Logic */}
-
-    {product?.length === 0 && 
+    {products?.length === 0 &&
     (
       <div className="flex flex-col items-center mt-20 text-white">
-        <p className="text-sm font-comic tracking-widest uppercase">Such empty stock :O</p>
+        <p className="text-base-comic uppercase">Such empty stock :O</p>
       </div>
     )
     }

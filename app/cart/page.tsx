@@ -1,8 +1,8 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-
 import { useCart } from '@/app/context/CartContext';
+import { formatPriceInLei } from '@/lib/format-price';
 import Link from 'next/link';
 
 export default function CartPage() {
@@ -42,7 +42,7 @@ export default function CartPage() {
               <div className="flex-1 min-w-0">
                 <h2 className="text-sm sm:text-base-comic text-black font-bold break-words">{item.name}</h2>
                 <p className="text-xs sm:text-base-comic text-black mt-2">
-                  {(item.price / 100).toFixed(2)} RON
+                  {formatPriceInLei(item.price)}
                 </p>
               </div>
 
@@ -68,7 +68,7 @@ export default function CartPage() {
                 </div>
 
                 <p className="text-xs sm:text-base-comic font-bold sm:w-24 sm:text-right">
-                  {((item.price * item.quantity) / 100).toFixed(2)} RON
+                  {formatPriceInLei(item.price * item.quantity)}
                 </p>
 
                 <button
@@ -86,18 +86,18 @@ export default function CartPage() {
           <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 sm:gap-0 mb-6 sm:mb-8">
             <p className="text-lg sm:text-2xl font-bold text-base-comic">Total:</p>
             <p className="text-lg sm:text-2xl font-bold text-base-comic">
-              {(total / 100).toFixed(2)} RON
+              {formatPriceInLei(total)}
             </p>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
             <button
               onClick={clearCart}
-              className="flex-1 bg-white text-black px-4 sm:px-8 py-2 sm:py-3 rounded font-comic text-xs sm:text-sm tracking-widest hover:bg-gray-200"
+              className="flex-1 bg-white text-black px-4 sm:px-8 py-2 sm:py-3 rounded text-base-comic hover:bg-gray-200"
             >
               Golire cos
             </button>
-            <button className="flex-1 bg-green-500 text-white px-4 sm:px-8 py-2 sm:py-3 rounded font-comic text-xs sm:text-sm tracking-widest hover:bg-green-600">
+            <button className="flex-1 bg-green-500 text-white px-4 sm:px-8 py-2 sm:py-3 rounded text-base-comic hover:bg-green-600">
               Comanda
             </button>
           </div>

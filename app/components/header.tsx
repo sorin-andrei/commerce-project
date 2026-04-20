@@ -1,11 +1,10 @@
 'use client';
 
 import Link from 'next/link';
-import { useCart } from '@/app/context/CartContext';
+import { useCartItemCount } from '@/app/hooks/useCartItemCount';
 
 export default function Header() {
-  const { items } = useCart();
-  const itemCount = items.reduce((sum, item) => sum + item.quantity, 0);
+  const itemCount = useCartItemCount();
 
   return (
     <header className="bg-sentimental text-white border-b border-white border-opacity-20">

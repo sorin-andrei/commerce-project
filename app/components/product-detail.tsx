@@ -5,6 +5,9 @@ import ProductImage from './product-image';
 import Button from './button';
 import { useCart } from '@/app/context/CartContext';
 import { useState } from 'react';
+import { formatPriceInLei } from '@/lib/format-price';
+
+const ADDED_TO_CART_FEEDBACK_DURATION_MS = 2000;
 
 interface ProductDetailProps {
   product: Product & { 
@@ -18,23 +21,20 @@ export default function ProductDetail({ product }: ProductDetailProps) {
   const [isAdded, setIsAdded] = useState(false);
 
   const currentInCart = items.find(item => item.id === product.id)?.quantity || 0;
-  const isStockFull = currentInCart >= product.stock;
+  const isCartAtMaxQuantity = currentInCart >= product.stock;
 
   const handleAddToCart = () => {
 
-    if (isStockFull)
-    {
-        return;
-    }
+    if (isCartAtMaxQuantity) return;
 
     addItem(product);
     setIsAdded(true);
-    setTimeout(() => setIsAdded(false), 2000);
+    setTimeout(() => setIsAdded(false), ADDED_TO_CART_FEEDBACK_DURATION_MS);
   };
   return (
     <div className="flex gap-12 w-full max-w-5xl">
       {/* Left: Image */}
-      <div className="flex-shrink-0 w-4/10">
+      <div className="flex-shrink-0 w-2/5">
         <ProductImage />
       </div>
 
@@ -55,7 +55,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
 
         <div className="mt-auto">
           <p className="text-2xl font-bold text-base-comic mb-6">
-            {(product.price / 100).toFixed(2)} RON
+            {formatPriceInLei(product.price)}
           </p>
           <Button 
             onClick={handleAddToCart}

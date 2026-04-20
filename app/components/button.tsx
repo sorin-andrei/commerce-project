@@ -1,6 +1,3 @@
-import { Product } from '@/types/product';
-import { useCart } from '@/app/context/CartContext';
-import { useState } from 'react';
 
 interface ButtonProps {
   onClick?: () => void;
@@ -15,7 +12,7 @@ export default function Button({
   variant = 'primary',
   className = ''
 }: ButtonProps) {
-  const baseStyles = 'px-8 py-3 rounded font-comic text-sm tracking-widest transition-colors';
+  const baseStyles = 'px-8 py-3 rounded text-base-comic transition-colors';
   
   const variants = {
     primary: 'bg-white text-black hover:bg-gray-200',

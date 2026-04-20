@@ -1,16 +1,15 @@
 'use client';
 
 import Link from 'next/link';
-import { useCart } from '@/app/context/CartContext';
+import { useCartItemCount } from '@/app/hooks/useCartItemCount';
 
 export default function CartButton() {
-  const { items } = useCart();
-  const itemCount = items.reduce((sum, item) => sum + item.quantity, 0);
+  const itemCount = useCartItemCount();
 
   return (
     <Link 
       href="/cart" 
-      className="fixed bottom-4 right-1/8 -translate-x-1/2 z-50 inline-flex items-center justify-center gap-2 bg-white text-sentimental px-4 py-3 rounded font-bold text-base hover:bg-gray-100 transition-colors"
+      className="fixed bottom-4 right-4 z-50 inline-flex items-center justify-center gap-2 bg-white text-sentimental px-4 py-3 rounded font-bold text-base hover:bg-gray-100 transition-colors"
     >
       <span className="text-2xl">🛒</span>
       Cart

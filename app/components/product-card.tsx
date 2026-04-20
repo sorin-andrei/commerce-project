@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Product } from '@/types/product';
 import ProductImage from './product-image';
+import { formatPriceInLei } from '@/lib/format-price';
 
 interface ProductCardProps {
   product: Product;
@@ -16,7 +17,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           <div>
             <h2 className="text-base-comic">{product.name}</h2>
           </div>
-          <p className="text-base-comic">{(product.price / 100).toFixed(2)} RON</p>
+          <p className="text-base-comic">{formatPriceInLei(product.price)}</p>
         </div>
 
         <div className="mt-1">
