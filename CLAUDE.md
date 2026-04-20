@@ -24,5 +24,18 @@
 - All file and folder names must be in English (e.g. `about/`, `collections/`, `cart-item.tsx`).
 - UI-facing text and content should be in Romanian.
 
+## Components
+- Extract a component when the same UI pattern appears in more than one place, or when a `map` callback becomes too long to read at a glance.
+- Only add `'use client'` when the component needs `useState`, `useEffect`, event handlers, or browser APIs. If it just renders and navigates, keep it a server component.
+
+## Data fetching
+- All Supabase queries happen in server components. Client components receive data as props or read from context — they never query Supabase directly.
+- Filter, search, and sort state belongs in URL search params, not in component state. This keeps URLs shareable and lets server components do the filtering.
+
+## Supabase types
+- Always derive enum types from `Database['public']['Enums']['name']` — never redefine them manually.
+- The `Constants` object in `types/supabase.ts` holds the runtime enum values when you need to iterate over them.
+- When the DB schema changes: run `npx supabase gen types typescript --project-id qlsgznygjkcxzvciyhyv > types/supabase.ts`, then update `types/product.ts` to match.
+
 ## Goal
 This codebase should be readable and maintainable by a developer who has never used AI assistance. Prioritize clarity over brevity at every level.

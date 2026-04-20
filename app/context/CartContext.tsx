@@ -67,11 +67,10 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     setItems([]);
   };
 
-  const updateQuantity = (productId: number, quantity: number) => {
+  const updateQuantity = (productId: number, quantity: number): void => {
     if (quantity <= 0) {
       removeItem(productId);
-      return false;
-
+      return;
     }
 
     setItems((prevItems) =>

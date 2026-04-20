@@ -1,6 +1,6 @@
 import BackButton from '@/app/components/back-button';
 
-export default function DesprePage() {
+export default function AboutPage() {
   return (
     <main className="flex flex-col items-center min-h-screen p-6 sm:p-12 bg-sentimental text-white">
       <div className="w-full max-w-5xl mb-8">

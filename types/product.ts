@@ -11,5 +11,6 @@ export interface Product {
   images_url: string[] | null;
   artist_id: number | null;
   status: Database['public']['Enums']['availability'];
+  medium: Database['public']['Enums']['medium'];
   created_at: string;
 }

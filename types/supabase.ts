@@ -1,4 +1,4 @@
-export type Json =
+﻿export type Json =
   | string
   | number
   | boolean
@@ -46,6 +46,7 @@ export type Database = {
           id: number
           images_url: string[] | null
           main_image_url: string | null
+          medium: Database["public"]["Enums"]["medium"]
           name: string | null
           price: number | null
           slug_url: string
@@ -59,6 +60,7 @@ export type Database = {
           id?: number
           images_url?: string[] | null
           main_image_url?: string | null
+          medium?: Database["public"]["Enums"]["medium"]
           name?: string | null
           price?: number | null
           slug_url: string
@@ -72,6 +74,7 @@ export type Database = {
           id?: number
           images_url?: string[] | null
           main_image_url?: string | null
+          medium?: Database["public"]["Enums"]["medium"]
           name?: string | null
           price?: number | null
           slug_url?: string
@@ -97,6 +100,7 @@ export type Database = {
     }
     Enums: {
       availability: "available" | "pending" | "sold" | "hidden"
+      medium: "ceramic" | "print" | "other"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -225,6 +229,7 @@ export const Constants = {
   public: {
     Enums: {
       availability: ["available", "pending", "sold", "hidden"],
+      medium: ["ceramic", "print", "other"],
     },
   },
 } as const
