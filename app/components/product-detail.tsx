@@ -6,6 +6,7 @@ import Button from './button';
 import { useCart } from '@/app/context/CartContext';
 import { useState } from 'react';
 import { formatPriceInLei } from '@/lib/format-price';
+import QuantitySelector from './quantity-selector';
 
 const ADDED_TO_CART_FEEDBACK_DURATION_MS = 2000;
 
@@ -19,15 +20,17 @@ interface ProductDetailProps {
 export default function ProductDetail({ product }: ProductDetailProps) {
   const { addItem, items } = useCart();
   const [isAdded, setIsAdded] = useState(false);
+  const [selectedQuantity, setSelectedQuantity] = useState(1);
 
   const currentInCart = items.find(item => item.id === product.id)?.quantity || 0;
-  const isCartAtMaxQuantity = currentInCart >= product.stock;
+  const remainingStock = product.stock - currentInCart;
+  const isCartAtMaxQuantity = remainingStock <= 0;
 
   const handleAddToCart = () => {
-
     if (isCartAtMaxQuantity) return;
 
-    addItem(product);
+    addItem(product, selectedQuantity);
+    setSelectedQuantity(1);
     setIsAdded(true);
     setTimeout(() => setIsAdded(false), ADDED_TO_CART_FEEDBACK_DURATION_MS);
   };
@@ -63,6 +66,18 @@ export default function ProductDetail({ product }: ProductDetailProps) {
           <p className="text-2xl font-bold text-base-comic mb-6">
             {formatPriceInLei(product.price)}
           </p>
+
+          {product.stock > 1 && !isCartAtMaxQuantity && (
+            <div className="mb-6">
+              <QuantitySelector
+                quantity={selectedQuantity}
+                maxQuantity={remainingStock}
+                onIncrease={() => setSelectedQuantity(q => Math.min(q + 1, remainingStock))}
+                onDecrease={() => setSelectedQuantity(q => Math.max(q - 1, 1))}
+              />
+            </div>
+          )}
+
           <Button
             onClick={handleAddToCart}
             className={isAdded ? 'bg-green-500 text-white hover:bg-green-600' : ''}
