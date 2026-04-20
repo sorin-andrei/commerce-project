@@ -1,13 +1,14 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
+import Button from './button';
 
 export default function BackButton() {
   const router = useRouter();
 
   return (
-    <button onClick={() => router.back()} className="text-large-comic hover:underline">
+    <Button onClick={() => router.back()}>
       Înapoi
-    </button>
+    </Button>
   );
 }

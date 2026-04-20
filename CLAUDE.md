@@ -20,5 +20,9 @@
 - One concept per file. Components, context, utilities, and types each live in their own file.
 - Export only what other modules need — keep internals unexported.
 
+## Language
+- All file and folder names must be in English (e.g. `about/`, `collections/`, `cart-item.tsx`).
+- UI-facing text and content should be in Romanian.
+
 ## Goal
 This codebase should be readable and maintainable by a developer who has never used AI assistance. Prioritize clarity over brevity at every level.

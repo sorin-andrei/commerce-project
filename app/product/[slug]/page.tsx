@@ -22,7 +22,7 @@ export default async function ProductPage({ params }: Props) {
   }
 
   return (
-    <main className="flex flex-col items-center min-h-screen p-12 bg-sentimental text-white">
+    <main className="flex flex-col items-center min-h-screen p-6 sm:p-12 bg-sentimental text-white">
       <div className="w-full max-w-5xl mb-8">
         <BackButton />
       </div>

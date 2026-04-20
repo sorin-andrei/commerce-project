@@ -14,7 +14,7 @@ export default function CartItemRow({ item, onRemove, onUpdateQuantity }: CartIt
   return (
     <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center bg-white bg-opacity-10 p-4 sm:p-6 rounded gap-4">
       <div className="flex-1 min-w-0">
-        <h2 className="text-base-comic text-black font-bold break-words">{item.name}</h2>
+        <h2 className="text-base-comic text-black break-words">{item.name}</h2>
         <p className="text-base-comic text-black mt-2">{formatPriceInLei(item.price)}</p>
       </div>
 
@@ -34,7 +34,7 @@ export default function CartItemRow({ item, onRemove, onUpdateQuantity }: CartIt
           onClick={onRemove}
           className="bg-red-500 px-3 sm:px-4 py-1 rounded text-base-comic hover:bg-red-600 w-full sm:w-auto"
         >
-          Remove
+          șterge
         </button>
       </div>
     </div>

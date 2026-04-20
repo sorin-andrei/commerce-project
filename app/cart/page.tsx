@@ -4,6 +4,7 @@ import { useCart } from '@/app/context/CartContext';
 import { formatPriceInLei } from '@/lib/format-price';
 import BackButton from '@/app/components/back-button';
 import CartItemRow from '@/app/components/cart-item';
+import Button from '@/app/components/button';
 import Link from 'next/link';
 
 const cartPageClassName = 'flex min-h-screen flex-col items-center p-4 sm:p-8 md:p-12 bg-sentimental text-white';
@@ -14,11 +15,9 @@ export default function CartPage() {
   if (items.length === 0) {
     return (
       <main className={`${cartPageClassName} justify-center`}>
-        <h1 className="text-large-comic mb-6 sm:mb-8 text-center">Your Cart</h1>
-        <p className="text-base-comic mb-6 sm:mb-8 text-center">Your cart is empty</p>
-        <Link href="/" className="text-base-comic text-blue-300 hover:underline">
-          Continue shopping
-        </Link>
+        <h1 className="text-large-comic mb-6 sm:mb-8 text-center">Coșul tău</h1>
+        <p className="text-base-comic mb-6 sm:mb-8 text-center">Coșul tău este gol</p>
+        <Link href="/"><Button>Continuă cumpărăturile</Button></Link>
       </main>
     );
   }

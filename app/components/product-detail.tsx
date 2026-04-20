@@ -31,33 +31,39 @@ export default function ProductDetail({ product }: ProductDetailProps) {
     setIsAdded(true);
     setTimeout(() => setIsAdded(false), ADDED_TO_CART_FEEDBACK_DURATION_MS);
   };
+  const productHeader = (
+    <>
+      <h1 className="text-large-comic mb-4">{product.name}</h1>
+      {product.artist?.name && (
+        <p className="text-base-comic mb-6">
+          <span className="font-bold">{product.artist.name}</span>
+        </p>
+      )}
+      <p className="text-base-comic mb-8 leading-relaxed">{product.description}</p>
+    </>
+  );
+
   return (
-    <div className="flex gap-12 w-full max-w-5xl">
-      {/* Left: Image */}
-      <div className="flex-shrink-0 w-2/5">
+    <div className="flex flex-col sm:flex-row gap-8 sm:gap-12 w-full max-w-5xl">
+
+      {/* Mobile only: name, artist, description above the image */}
+      <div className="sm:hidden">{productHeader}</div>
+
+      <div className="w-full sm:w-2/5 sm:flex-shrink-0">
         <ProductImage />
       </div>
 
-      {/* Right: Product Info */}
-      <div className="flex-1 flex flex-col justify-start">
-        <h1 className="text-large-comic mb-4">{product.name}</h1>
-
-        {product.artist?.name && (
-          <p className="text-base-comic mb-6">
-            <span className="font-bold">{product.artist.name}</span>
-          </p>
-        )}
-
-        <p className="text-base-comic mb-8 leading-relaxed">{product.description}</p>
-
+      <div className="sm:flex-1 sm:flex sm:flex-col">
+        {/* Desktop only: name, artist, description in the right column */}
+        <div className="hidden sm:block">{productHeader}</div>
 
         <p className="text-base-comic">Stoc: {product.stock}</p>
 
-        <div className="mt-auto">
+        <div className="mt-8 sm:mt-auto">
           <p className="text-2xl font-bold text-base-comic mb-6">
             {formatPriceInLei(product.price)}
           </p>
-          <Button 
+          <Button
             onClick={handleAddToCart}
             className={isAdded ? 'bg-green-500 text-white hover:bg-green-600' : ''}
           >

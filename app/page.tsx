@@ -1,5 +1,6 @@
 import { supabase } from '@/lib/supabase';
 import ProductGrid from './components/product-grid';
+import Link from 'next/link';
 
 export default async function Home() {
   const { data: products, error } = await supabase
@@ -14,7 +15,13 @@ return (
       <h1 className="text-large-comic">Aprozar Sentimental</h1>
     </header>
 
-   <ProductGrid products={products} />
+    <nav className="flex gap-4 mb-16">
+      <Link href="/about" className="px-8 py-3 rounded text-base-comic bg-white text-black hover:bg-gray-200 transition-colors">Despre</Link>
+      <Link href="/collections" className="px-8 py-3 rounded text-base-comic bg-white text-black hover:bg-gray-200 transition-colors">Colecții</Link>
+      <Link href="/artists" className="px-8 py-3 rounded text-base-comic bg-white text-black hover:bg-gray-200 transition-colors">Artiști</Link>
+    </nav>
+
+    <ProductGrid products={products} />
 
     {products?.length === 0 &&
     (
