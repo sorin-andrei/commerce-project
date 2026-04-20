@@ -15,9 +15,9 @@ export default function Button({
   const baseStyles = 'px-8 py-3 rounded text-base-comic transition-colors';
   
   const variants = {
-    primary: 'bg-white text-black hover:bg-gray-200',
-    secondary: 'bg-gray-400 text-black hover:bg-gray-500',
-    danger: 'bg-red-500 text-white hover:bg-red-600',
+    primary: 'bg-primary text-black hover:bg-primary-hover',
+    secondary: 'bg-inactive text-black hover:bg-inactive-hover',
+    danger: 'bg-destructive text-white hover:bg-destructive-hover',
   };
 
   return (

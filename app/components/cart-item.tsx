@@ -32,7 +32,7 @@ export default function CartItemRow({ item, onRemove, onUpdateQuantity }: CartIt
 
         <button
           onClick={onRemove}
-          className="bg-red-500 px-3 sm:px-4 py-1 rounded text-base-comic hover:bg-red-600 w-full sm:w-auto"
+          className="bg-destructive text-white px-3 sm:px-4 py-1 rounded text-base-comic hover:bg-destructive-hover w-full sm:w-auto"
         >
           șterge
         </button>

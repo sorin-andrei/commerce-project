@@ -47,11 +47,11 @@ export default function CartPage() {
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
             <button
               onClick={clearCart}
-              className="flex-1 bg-white text-black px-4 sm:px-8 py-2 sm:py-3 rounded text-base-comic hover:bg-gray-200"
+              className="flex-1 bg-primary text-black px-4 sm:px-8 py-2 sm:py-3 rounded text-base-comic hover:bg-primary-hover"
             >
               Golire cos
             </button>
-            <button className="flex-1 bg-green-500 text-white px-4 sm:px-8 py-2 sm:py-3 rounded text-base-comic hover:bg-green-600">
+            <button className="flex-1 bg-success text-white px-4 sm:px-8 py-2 sm:py-3 rounded text-base-comic hover:bg-success-hover">
               Comanda
             </button>
           </div>

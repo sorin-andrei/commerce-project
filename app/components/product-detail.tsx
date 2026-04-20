@@ -80,7 +80,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
 
           <Button
             onClick={handleAddToCart}
-            className={isAdded ? 'bg-green-500 text-white hover:bg-green-600' : ''}
+            className={isAdded ? 'bg-success text-white hover:bg-success-hover' : ''}
           >
             {isAdded ? 'Adăugat!' : 'Adaugă'}
           </Button>

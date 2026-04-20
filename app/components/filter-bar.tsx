@@ -14,7 +14,7 @@ interface FilterBarProps {
 }
 
 export default function FilterBar({ activeFilter }: FilterBarProps) {
-  const activePillClass = 'px-6 py-2 rounded text-base-comic bg-white text-black';
+  const activePillClass = 'px-6 py-2 rounded text-base-comic bg-primary text-black';
   const inactivePillClass = 'px-6 py-2 rounded text-base-comic bg-white bg-opacity-30 text-gray-400 hover:bg-opacity-50 transition-colors';
 
   return (

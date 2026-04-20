@@ -13,7 +13,7 @@ export default function QuantitySelector({ quantity, maxQuantity, onIncrease, on
       <button
         onClick={onDecrease}
         disabled={quantity === 1}
-        className="bg-gray-400 px-2 sm:px-3 py-1 rounded hover:bg-gray-500 text-base-comic disabled:opacity-50 disabled:cursor-not-allowed"
+        className="bg-inactive px-2 sm:px-3 py-1 rounded hover:bg-inactive-hover text-base-comic disabled:opacity-50 disabled:cursor-not-allowed"
       >
         −
       </button>
@@ -23,7 +23,7 @@ export default function QuantitySelector({ quantity, maxQuantity, onIncrease, on
       <button
         onClick={onIncrease}
         disabled={quantity === maxQuantity}
-        className="bg-gray-400 px-2 sm:px-3 py-1 rounded hover:bg-gray-500 text-base-comic disabled:opacity-50 disabled:cursor-not-allowed"
+        className="bg-inactive px-2 sm:px-3 py-1 rounded hover:bg-inactive-hover text-base-comic disabled:opacity-50 disabled:cursor-not-allowed"
       >
         +
       </button>

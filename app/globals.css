@@ -4,6 +4,15 @@
   --color-foreground: var(--foreground);
   --font-comic: "ComicHelvetic", cursive;
 
+  --color-primary: #ffffff;
+  --color-primary-hover: #e5e7eb;
+  --color-destructive: #ef4444;
+  --color-destructive-hover: #dc2626;
+  --color-success: #22c55e;
+  --color-success-hover: #16a34a;
+  --color-inactive: #9ca3af;
+  --color-inactive-hover: #6b7280;
+
   --background-image-sentimental: radial-gradient(
     circle,
     rgba(63, 94, 251, 1) 0%,

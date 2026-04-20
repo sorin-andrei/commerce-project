@@ -31,8 +31,8 @@ export default async function Home({ searchParams }: { searchParams: Promise<Sea
       </header>
 
       <nav className="flex gap-4 mb-16">
-        <Link href="/about" className="px-8 py-3 rounded text-base-comic bg-white text-black hover:bg-gray-200 transition-colors">Despre</Link>
-        <Link href="/artists" className="px-8 py-3 rounded text-base-comic bg-white text-black hover:bg-gray-200 transition-colors">Artiști</Link>
+        <Link href="/about" className="px-8 py-3 rounded text-base-comic bg-primary text-black hover:bg-primary-hover transition-colors">Despre</Link>
+        <Link href="/artists" className="px-8 py-3 rounded text-base-comic bg-primary text-black hover:bg-primary-hover transition-colors">Artiști</Link>
       </nav>
 
       <FilterBar activeFilter={activeFilter} />
